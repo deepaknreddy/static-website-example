@@ -15,9 +15,9 @@ pipeline
             {
                 scripts {
                 echo "Hello"
-                branch = "$BRANCH_NAME"
-                workspace = "$WORKSPACE"
-                url = "$BUILD_URL"
+                branch = env.BRANCH_NAME
+                workspace = env.WORKSPACE
+                url = env.BUILD_URL
                 echo "Current branch is ${barnch} and current workspace is ${workspace}. url is ${url}"
 
                 }
