@@ -1,5 +1,9 @@
 #! groovy
 
+def branch
+def workspace
+def url
+
 pipeline
 {
     agent any
@@ -9,7 +13,11 @@ pipeline
         {
             steps
             {
-                checkout scm
+                echo "Hello"
+                branch = $BRANCH_NAME
+                workspace = $WORKSPACE
+                url = $BUILD_URL
+                echo "Current branch is $barnch and current workspace is $workspace. url is $url"
             }
 
         }
