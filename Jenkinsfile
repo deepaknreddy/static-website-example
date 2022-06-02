@@ -14,9 +14,9 @@ pipeline
             steps
             {
                 echo "Hello"
-                branch = $BRANCH_NAME
-                workspace = $WORKSPACE
-                url = $BUILD_URL
+                branch = "$BRANCH_NAME"
+                workspace = "$WORKSPACE"
+                url = "$BUILD_URL"
                 echo "Current branch is $barnch and current workspace is $workspace. url is $url"
             }
 
