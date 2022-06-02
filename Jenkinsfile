@@ -14,7 +14,8 @@ pipeline
             steps
             {
                 scripts {
-                    echo "We are into ${env.BRANCH_NAME}"
+                    branch = env.BRANCH_NAME
+                    echo "We are into ${branch}"
                 // echo "Hello"
                 // branch = env.BRANCH_NAME
                 // workspace = env.WORKSPACE
