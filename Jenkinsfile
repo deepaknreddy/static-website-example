@@ -1,32 +1,11 @@
 #! groovy
-
-def branch
-def workspace
-def url
-
-pipeline
-{
+pipeline {
     agent any
-    stages 
-    {
-        stage("Cloning the Repo")
-        {
-            steps
-            {
-                scripts {
-                    branch = env.BRANCH_NAME
-                    echo "We are into ${branch}"
-                // echo "Hello"
-                // branch = env.BRANCH_NAME
-                // workspace = env.WORKSPACE
-                // url = env.BUILD_URL
-                // echo "Current branch is ${barnch} and current workspace is ${workspace}. url is ${url}"
-
-                }
+    stages {
+        stage('Example') {
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
-
         }
-
     }
-
 }
