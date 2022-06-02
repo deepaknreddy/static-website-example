@@ -17,7 +17,7 @@ pipeline
                 branch = "$BRANCH_NAME"
                 workspace = "$WORKSPACE"
                 url = "$BUILD_URL"
-                echo "Current branch is $barnch and current workspace is $workspace. url is $url"
+                echo "Current branch is ${barnch} and current workspace is ${workspace}. url is ${url}"
             }
 
         }
