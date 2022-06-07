@@ -19,7 +19,7 @@ pipeline
             {
                 script
                 {
-                    sh 'ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa deepu@3.109.144.127 "/home/deepu/deployment.sh"'
+                    sh 'ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa deepu@3.109.144.127 "/tmp/deployment.sh"'
                 }
             }
         }
