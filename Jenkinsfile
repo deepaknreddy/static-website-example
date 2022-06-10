@@ -14,7 +14,7 @@ pipeline
             {
                 script
                 {
-                   ansible-playbook nginx-deployment.yml
+                  sudo ansible-playbook nginx-deployment.yml
                 }
             }
         }
