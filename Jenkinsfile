@@ -19,7 +19,7 @@ pipeline
             {
                 script
                 {
-                    sh 'ansible-playbook /etc/ansible/httpd-deployment.yml'
+                    ansible-playbook /etc/ansible/httpd-deployment.yml
                 }
             }
         }
