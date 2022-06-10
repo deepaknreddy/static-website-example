@@ -1,41 +1,48 @@
+#! groovy
 pipeline
 {
     agent any
     stages
     {
-        stage('Checkout the repo')
+        stage("DEVELOPMENT")
         {
-            steps{
-                checkout scm
-            }
-        }
-
-        stage('Deploy to Development branch')
-        {
-           when
+            when
             {
-                expression { env.BRANCH_NAME == 'development' }
+                expression{ env.BRANCH_NAME == 'development'}
             }
             steps
             {
                 script
                 {
-                   sh 'ansible-playbook /etc/ansible/httpd-deployment.yml'
+                   ansible-playbook nginx-deployment.yml
                 }
             }
         }
-
-        stage('Deploy to Master branch')
+        stage ("MASTER")
         {
-             when
+            when
             {
-                expression { env.BRANCH_NAME == 'production' }
+                expression{env.BRANCH_NAME=='production'}
             }
             steps
             {
                 script
                 {
-                    sh ' ansible-playbook /etc/ansible/nginx-deployment.yml'
+                   sh 'ansible-playbook httpd-deployment.yml'
+                }
+            }
+        }
+        stage( "QA")
+        {
+          when
+         {
+         expression{ env.BRANCH_NAME == 'qa' }
+         }
+            steps
+            {
+                script
+                {
+                   echo 'QA branch '
                 }
             }
         }
