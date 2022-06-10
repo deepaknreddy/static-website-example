@@ -12,22 +12,24 @@ pipeline
 
         stage('Deploy to Development branch')
         {
-           when {
+           when
+            {
                 expression { env.BRANCH_NAME == 'development' }
             }
             steps
             {
                 script
                 {
-                    ansible-playbook /etc/ansible/httpd-deployment.yml
+                   sh 'ansible-playbook /etc/ansible/httpd-deployment.yml'
                 }
             }
         }
 
         stage('Deploy to Master branch')
         {
-             when {
-                expression { env.BRANCH_NAME == 'master' }
+             when
+            {
+                expression { env.BRANCH_NAME == 'production' }
             }
             steps
             {
