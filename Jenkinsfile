@@ -19,7 +19,7 @@ pipeline
             {
                 script
                 {
-                    sh 'ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa deepu@3.109.144.127 "/tmp/deployment.sh"'
+                    sh 'ansible-playbook /etc/ansible/nginx-deployment.yml'
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline
             {
                 script
                 {
-                    sh 'ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa deepu@65.2.140.149 "/tmp/deployment.sh"'
+                    sh ' ansible-playbook /etc/ansible/nginx-deployment.yml'
                 }
             }
         }
