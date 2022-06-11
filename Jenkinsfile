@@ -18,7 +18,7 @@ pipeline
                 }
             }
         }
-        stage ("MASTER")
+        stage ("MASTER/PRODUCTION")
         {
             when
             {
@@ -28,21 +28,21 @@ pipeline
             {
                 script
                 {
-                   sh 'ansible-playbook httpd-deployment.yml'
+                   sh 'ansible-playbook /etc/ansible/httpd-deployment.yml'
                 }
             }
         }
-        stage( "QA")
+        stage( "uat")
         {
           when
          {
-         expression{ env.BRANCH_NAME == 'qa' }
+         expression{env.BRANCH_NAME == 'uat'}
          }
             steps
             {
                 script
                 {
-                   echo 'QA branch '
+                   echo 'UAT branch '
                 }
             }
         }
